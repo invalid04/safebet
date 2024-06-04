@@ -6,8 +6,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    balance = db.Column(db.Integer, defualt=500)
-    date_created = db.Column(db.Date(timezone=True), default=func.now())
+    balance = db.Column(db.Integer, default=500)
+    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
 
     def bet(self, amount, win_amount):
         if self.balance >= amount:
